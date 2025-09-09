@@ -22,9 +22,9 @@ Abaixo está a lista de requisitos do teste e o status de implementação de cad
 - [x] **3.5.** Agrupar os funcionários por função em um `Map`.
 - [x] **3.6.** Imprimir a lista de funcionários agrupada por função.
 - [x] **3.8.** Imprimir os funcionários que fazem aniversário nos meses 10 e 12.
-- [ ] **3.9.** Imprimir o funcionário com a maior idade.
-- [ ] **3.10.** Imprimir a lista de funcionários por ordem alfabética.
-- [ ] **3.11.** Imprimir o total dos salários.
+- [x] **3.9.** Imprimir o funcionário com a maior idade.
+- [x] **3.10.** Imprimir a lista de funcionários por ordem alfabética.
+- [x] **3.11.** Imprimir o total dos salários.
 - [ ] **3.12.** Imprimir quantos salários mínimos cada funcionário ganha.
 
 ---
