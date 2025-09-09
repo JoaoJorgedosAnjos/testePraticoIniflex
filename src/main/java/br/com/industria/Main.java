@@ -41,7 +41,7 @@ public class Main {
         imprimirFuncionariosAgrupados(funcionariosAgrupados);
 
         List<Funcionario> aniversariantes = funcionarioService.filtrarAniversariantesDoMes(listaFuncionarios,10,12);
-        System.out.printf("\n--- Lista de aniversariantes do mês 10 e mês 12 ---\n");
+        System.out.print("\n--- Lista de aniversariantes do mês 10 e mês 12 ---\n");
         FuncionarioView.imprimirFuncionariosAniversariantes(aniversariantes);
     }
 }
