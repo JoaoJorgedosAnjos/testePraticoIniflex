@@ -6,6 +6,7 @@ import br.com.industria.view.FuncionarioView;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 import static br.com.industria.view.FuncionarioView.*;
@@ -15,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         FuncionarioService funcionarioService = new FuncionarioService();
+        int idade = 0;
 
         List<Funcionario> listaFuncionarios = new ArrayList<>(Arrays.asList(
                 new Funcionario("Maria", LocalDate.of(2000, 10, 18), new BigDecimal("2009.44"), "Operador"),
@@ -40,8 +42,25 @@ public class Main {
         Map<String, List<Funcionario>> funcionariosAgrupados = funcionarioService.agruparFuncionariosPorFuncao(listaFuncionarios);
         imprimirFuncionariosAgrupados(funcionariosAgrupados);
 
-        List<Funcionario> aniversariantes = funcionarioService.filtrarAniversariantesDoMes(listaFuncionarios,10,12);
+        List<Funcionario> aniversariantes = funcionarioService.filtrarAniversariantesDoMes(listaFuncionarios, 10, 12);
         System.out.print("\n--- Lista de aniversariantes do mês 10 e mês 12 ---\n");
-        FuncionarioView.imprimirFuncionariosAniversariantes(aniversariantes);
+        imprimirFuncionariosAniversariantes(aniversariantes);
+
+        Optional<Funcionario> funcionarioMaisVelhoOptional = funcionarioService.filtrarFuncionarioMaisVelho(listaFuncionarios);
+        if (funcionarioMaisVelhoOptional.isPresent()) {
+            Funcionario funcionarioExistente = funcionarioMaisVelhoOptional.get();
+            idade = Period.between(funcionarioExistente.getDataNascimento(), LocalDate.now()).getYears();
+            imprimirFuncionarioMaisVelho(funcionarioExistente, idade);
+        }
+
+        List<Funcionario> listaFuncionariosOrdemAlfabetica = funcionarioService.filtrarPorOrdemAlfabetica(listaFuncionarios);
+        imprimirListaFuncionariosOrgemAlfabetica(listaFuncionariosOrdemAlfabetica);
+
+        funcionarioService.somarTotalSalarios(listaFuncionarios);
+
+        BigDecimal somaTotalSalarios = funcionarioService.somarTotalSalarios(listaFuncionarios);
+        FuncionarioView.imprimirTotalSalarios(somaTotalSalarios);
+
+
     }
 }

@@ -4,8 +4,7 @@ import br.com.industria.model.Funcionario;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FuncionarioService {
@@ -25,5 +24,24 @@ public class FuncionarioService {
         return listaFuncionarios.stream()
                 .filter(funcionario -> funcionario.getDataNascimento().getMonthValue() == mes1 || funcionario.getDataNascimento().getMonthValue() == mes2)
                 .collect(Collectors.toList());
+    }
+
+    public Optional<Funcionario> filtrarFuncionarioMaisVelho(List<Funcionario> listaFuncionarios) {
+        return listaFuncionarios.stream()
+                .min(Comparator.comparing(Funcionario::getDataNascimento));
+    }
+
+    public List<Funcionario> filtrarPorOrdemAlfabetica(List<Funcionario> listaFuncionarios) {
+        return listaFuncionarios.stream()
+                .sorted(Comparator.comparing(Funcionario::getNome))
+                .collect(Collectors.toList());
+    }
+
+    public BigDecimal somarTotalSalarios(List<Funcionario> listaSalarios) {
+        BigDecimal total = BigDecimal.ZERO;
+        for (Funcionario funcionario : listaSalarios) {
+            total = total.add(funcionario.getSalario());
+        }
+        return total;
     }
 }

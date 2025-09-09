@@ -2,6 +2,7 @@ package br.com.industria.view;
 
 import br.com.industria.model.Funcionario;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.format.DateTimeFormatter;
@@ -50,5 +51,27 @@ public class FuncionarioView {
             System.out.printf("Nome: %s, Data Nascimento: %s\n", f.getNome(), dtf.format(f.getDataNascimento()));
         }
 
+    }
+
+    public static void imprimirFuncionarioMaisVelho(Funcionario funcionario, int idade) {
+        System.out.println("\n--- Funcionário(a) com Maior Idade ---");
+        System.out.println("Nome: " + funcionario.getNome() + ", Idade: " + idade);
+    }
+
+    public static void imprimirListaFuncionariosOrgemAlfabetica(List<Funcionario> funcionarios) {
+        System.out.println("\n--- Lista de funcionário(a)s em ordem alfabética ---");
+        for (Funcionario f : funcionarios) {
+            System.out.println("Nome: " + f.getNome());
+        }
+    }
+
+    // Dentro de FuncionarioView.java
+
+    public static void imprimirTotalSalarios(BigDecimal totalSalarios) {
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.of("pt", "BR"));
+        DecimalFormat df = new DecimalFormat("#,##0.00", dfs);
+
+        System.out.println("\n--- Soma total dos salários dos funcionnários ---");
+        System.out.println("O valor total dos salários de todos os funcionários é: R$ " + df.format(totalSalarios));
     }
 }
