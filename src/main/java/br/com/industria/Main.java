@@ -4,10 +4,7 @@ import br.com.industria.model.Funcionario;
 import br.com.industria.service.FuncionarioService;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static br.com.industria.view.FuncionarioView.imprimirListaFuncionarios;
