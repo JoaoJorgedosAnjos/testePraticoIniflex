@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         FuncionarioService funcionarioService = new FuncionarioService();
-        int idade = 0;
+        int idade;
 
         List<Funcionario> listaFuncionarios = new ArrayList<>(Arrays.asList(
                 new Funcionario("Maria", LocalDate.of(2000, 10, 18), new BigDecimal("2009.44"), "Operador"),
