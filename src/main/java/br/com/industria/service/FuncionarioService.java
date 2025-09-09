@@ -20,4 +20,10 @@ public class FuncionarioService {
     public Map<String, List<Funcionario>> agruparFuncionariosPorFuncao(List<Funcionario> listaFuncionarios) {
         return listaFuncionarios.stream().collect(Collectors.groupingBy(Funcionario::getFuncao));
     }
+
+    public List<Funcionario> filtrarAniversariantesDoMes(List<Funcionario> listaFuncionarios, int mes1, int mes2) {
+        return listaFuncionarios.stream()
+                .filter(funcionario -> funcionario.getDataNascimento().getMonthValue() == mes1 || funcionario.getDataNascimento().getMonthValue() == mes2)
+                .collect(Collectors.toList());
+    }
 }

@@ -2,13 +2,13 @@ package br.com.industria;
 
 import br.com.industria.model.Funcionario;
 import br.com.industria.service.FuncionarioService;
+import br.com.industria.view.FuncionarioView;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
-import static br.com.industria.view.FuncionarioView.imprimirListaFuncionarios;
-import static br.com.industria.view.FuncionarioView.imprimirFuncionariosAgrupados;
+import static br.com.industria.view.FuncionarioView.*;
 
 public class Main {
 
@@ -40,5 +40,8 @@ public class Main {
         Map<String, List<Funcionario>> funcionariosAgrupados = funcionarioService.agruparFuncionariosPorFuncao(listaFuncionarios);
         imprimirFuncionariosAgrupados(funcionariosAgrupados);
 
+        List<Funcionario> aniversariantes = funcionarioService.filtrarAniversariantesDoMes(listaFuncionarios,10,12);
+        System.out.printf("\n--- Lista de aniversariantes do mês 10 e mês 12 ---\n");
+        FuncionarioView.imprimirFuncionariosAniversariantes(aniversariantes);
     }
 }

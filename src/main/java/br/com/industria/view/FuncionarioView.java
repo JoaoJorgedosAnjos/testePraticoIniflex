@@ -1,6 +1,7 @@
 package br.com.industria.view;
 
 import br.com.industria.model.Funcionario;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.format.DateTimeFormatter;
@@ -37,5 +38,17 @@ public class FuncionarioView {
                 System.out.println("- " + f.getNome());
             }
         }
+    }
+
+    public static void imprimirFuncionariosAniversariantes(List<Funcionario> aniversariantes) {
+        if (aniversariantes.isEmpty()) {
+            System.out.print("Nenhum funcionário faz aniversário nesse mês!\n");
+            return;
+        }
+        for (Funcionario f : aniversariantes) {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            System.out.printf("Nome: %s, Data Nascimento: %s\n", f.getNome(), dtf.format(f.getDataNascimento()));
+        }
+
     }
 }
