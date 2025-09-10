@@ -3,6 +3,7 @@ package br.com.industria.view;
 import br.com.industria.model.Funcionario;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.format.DateTimeFormatter;
@@ -50,7 +51,6 @@ public class FuncionarioView {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             System.out.printf("Nome: %s, Data Nascimento: %s\n", f.getNome(), dtf.format(f.getDataNascimento()));
         }
-
     }
 
     public static void imprimirFuncionarioMaisVelho(Funcionario funcionario, int idade) {
@@ -65,13 +65,22 @@ public class FuncionarioView {
         }
     }
 
-    // Dentro de FuncionarioView.java
-
     public static void imprimirTotalSalarios(BigDecimal totalSalarios) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.of("pt", "BR"));
         DecimalFormat df = new DecimalFormat("#,##0.00", dfs);
 
         System.out.println("\n--- Soma total dos salários dos funcionnários ---");
         System.out.println("O valor total dos salários de todos os funcionários é: R$ " + df.format(totalSalarios));
+    }
+
+    public static void imprimirSalariosEmSalariosMinimos(List<Funcionario> funcionarios) {
+        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+
+        System.out.println("\n--- Quantidade de salários mínimos por funcionário ---");
+
+        for (Funcionario f : funcionarios) {
+            BigDecimal quantosSalarios = f.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_UP);
+            System.out.printf("Funcionário: %-10s | Ganha aproximadamente %.2f vezes o valor do salário mínimo.\n", f.getNome(), quantosSalarios);
+        }
     }
 }

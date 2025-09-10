@@ -61,6 +61,6 @@ public class Main {
         BigDecimal somaTotalSalarios = funcionarioService.somarTotalSalarios(listaFuncionarios);
         FuncionarioView.imprimirTotalSalarios(somaTotalSalarios);
 
-
+        FuncionarioView.imprimirSalariosEmSalariosMinimos(listaFuncionarios);
     }
 }
