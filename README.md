@@ -1,6 +1,6 @@
 # Teste Prático - Iniflex
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/status-Concluído-green)
 
 ## 📝 Descrição
 
@@ -25,7 +25,7 @@ Abaixo está a lista de requisitos do teste e o status de implementação de cad
 - [x] **3.9.** Imprimir o funcionário com a maior idade.
 - [x] **3.10.** Imprimir a lista de funcionários por ordem alfabética.
 - [x] **3.11.** Imprimir o total dos salários.
-- [ ] **3.12.** Imprimir quantos salários mínimos cada funcionário ganha.
+- [x] **3.12.** Imprimir quantos salários mínimos cada funcionário ganha.
 
 ---
 
